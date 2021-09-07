@@ -33,36 +33,50 @@ public class UserRegistrationProblem {
 	public static boolean checkPassword(String password) {
 		Pattern pattern = Pattern.compile("(?=.*[A-Z])(?=.*[0-9]).{8,}");
 		Matcher matcher = pattern.matcher(password);
+		if(!matcher.matches()) return false;
+		pattern = Pattern.compile("^[a-zA-Z0-9]*[^a-zA-Z0-9][a-zA-Z0-9]*$");
+		matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter First name :");
-		String firstName = sc.nextLine();
-		if(checkFirstName(firstName)) System.out.println("valid");
-		else System.out.println("Invalid");
+		while(true) {
+			System.out.println("enter First name :");
+			String firstName = sc.nextLine();
+			if(checkFirstName(firstName)) break;
+			else System.out.println("Invalid");
+		}
 		
-		System.out.println("enter Last name :");
-		String lastName = sc.nextLine();
-		if(checkLastName(lastName)) System.out.println("valid");
-		else System.out.println("Invalid");
+		while(true) {
+			System.out.println("enter Last name :");
+			String lastName = sc.nextLine();
+			if(checkLastName(lastName)) break;
+			else System.out.println("Invalid");
+		}
 		
-		System.out.println("enter email:");
-		String email = sc.nextLine();
-		if(checkEmail(email)) System.out.println("valid");
-		else System.out.println("Invalid");
+		while(true) {
+			System.out.println("enter email:");
+			String email = sc.nextLine();
+			if(checkEmail(email)) break;
+			else System.out.println("Invalid");
+		}
 		
-		System.out.println("enter Mobile number:");
-		String mobileNumber = sc.nextLine();
-		if(checkMobileNumber(mobileNumber)) System.out.println("valid");
-		else System.out.println("Invalid");
+		while(true) {
+			System.out.println("enter Mobile number:");
+			String mobileNumber = sc.nextLine();
+			if(checkMobileNumber(mobileNumber)) break;
+			else System.out.println("Invalid");
+		}
 		
-		System.out.println("enter password:");
-		String password = sc.nextLine();
-		if(checkPassword(password)) System.out.println("valid");
-		else System.out.println("Invalid");
+		while(true) {
+			System.out.println("enter password:");
+			String password = sc.nextLine();
+			if(checkPassword(password)) break;
+			else System.out.println("Invalid");
+		}
 		sc.close();
+		
 		
 	}
 }
