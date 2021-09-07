@@ -30,6 +30,12 @@ public class UserRegistrationProblem {
 		return matcher.matches();
 	}
 	
+	public static boolean checkPassword(String password) {
+		Pattern pattern = Pattern.compile("[a-z]{8,}");
+		Matcher matcher = pattern.matcher(password);
+		return matcher.matches();
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter First name :");
@@ -50,6 +56,11 @@ public class UserRegistrationProblem {
 		System.out.println("enter Mobile number:");
 		String mobileNumber = sc.nextLine();
 		if(checkMobileNumber(mobileNumber)) System.out.println("valid");
+		else System.out.println("Invalid");
+		
+		System.out.println("enter password:");
+		String password = sc.nextLine();
+		if(checkPassword(password)) System.out.println("valid");
 		else System.out.println("Invalid");
 		sc.close();
 		
