@@ -24,6 +24,12 @@ public class UserRegistrationProblem {
 		return matcher.matches();
 	}
 	
+	public static boolean checkMobileNumber(String mobileNumber) {
+		Pattern pattern = Pattern.compile("[1-9][0-9][\s][1-9][0-9]{9}");
+		Matcher matcher = pattern.matcher(mobileNumber);
+		return matcher.matches();
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter First name :");
@@ -39,6 +45,11 @@ public class UserRegistrationProblem {
 		System.out.println("enter email:");
 		String email = sc.nextLine();
 		if(checkEmail(email)) System.out.println("valid");
+		else System.out.println("Invalid");
+		
+		System.out.println("enter Mobile number:");
+		String mobileNumber = sc.nextLine();
+		if(checkMobileNumber(mobileNumber)) System.out.println("valid");
 		else System.out.println("Invalid");
 		sc.close();
 		
