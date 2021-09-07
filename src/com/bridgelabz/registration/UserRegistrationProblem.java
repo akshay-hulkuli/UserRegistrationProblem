@@ -12,12 +12,23 @@ public class UserRegistrationProblem {
 		return matcher.matches();
 	}
 	
+	public static boolean checkLastName(String lastName) {
+		Pattern pattern = Pattern.compile("[A-Z][a-zA-Z]{2,}");
+		Matcher matcher = pattern.matcher(lastName);
+		return matcher.matches();
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-			System.out.println("enter First name :");
-			if(checkFirstName(sc.nextLine())) System.out.println("valid");
-			else System.out.println("Invalid");
+		System.out.println("enter First name :");
+		if(checkFirstName(sc.nextLine())) System.out.println("valid");
+		else System.out.println("Invalid");
 		
+		System.out.println("enter Last name :");
+		if(checkLastName(sc.nextLine())) System.out.println("valid");
+		else System.out.println("Invalid");
+		
+		sc.close();
 		
 	}
 }
