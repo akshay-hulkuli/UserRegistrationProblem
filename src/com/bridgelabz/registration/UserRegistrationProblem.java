@@ -31,7 +31,7 @@ public class UserRegistrationProblem {
 	}
 	
 	public static boolean checkPassword(String password) {
-		Pattern pattern = Pattern.compile("[a-z]{8,}");
+		Pattern pattern = Pattern.compile("(?=.*[A-Z]).{8,}");
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
