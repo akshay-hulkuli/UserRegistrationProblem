@@ -18,16 +18,28 @@ public class UserRegistrationProblem {
 		return matcher.matches();
 	}
 	
+	public static boolean checkEmail(String email) {
+		Pattern pattern = Pattern.compile("([a-zA-Z][a-zA-Z0-9_-]*[a-zA-Z0-9])(([+_.-][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]+)([.])([a-z]{2,})(([.][a-z]{2,})?)");
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter First name :");
-		if(checkFirstName(sc.nextLine())) System.out.println("valid");
+		String firstName = sc.nextLine();
+		if(checkFirstName(firstName)) System.out.println("valid");
 		else System.out.println("Invalid");
 		
 		System.out.println("enter Last name :");
-		if(checkLastName(sc.nextLine())) System.out.println("valid");
+		String lastName = sc.nextLine();
+		if(checkLastName(lastName)) System.out.println("valid");
 		else System.out.println("Invalid");
 		
+		System.out.println("enter email:");
+		String email = sc.nextLine();
+		if(checkEmail(email)) System.out.println("valid");
+		else System.out.println("Invalid");
 		sc.close();
 		
 	}
